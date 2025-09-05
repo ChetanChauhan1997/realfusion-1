@@ -1,32 +1,35 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import './globals.css'
+import { Metadata } from "next";
+import { Montserrat, Lato } from "next/font/google";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'RealFusion 1 ',
-  description: 'Created by Chetan',
-  generator: 'React',
-}
+  title: "RealFusion 1",
+  description: "Created by Chetan",
+  generator: "React",
+};
 
+// Montserrat (semi-bold)
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600"],
+  variable: "--font-montserrat",
+});
+
+// Lato (normal)
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-lato",
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${montserrat.variable} ${lato.variable}`}>
+      <body className="font-lato">{children}</body>
     </html>
-  )
+  );
 }

@@ -62,7 +62,7 @@ export default function ContactForm() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-xl"
+      className="bg-[#f7f7f7] backdrop-blur-sm p-8 rounded-2xl  shadow-xl"
     >
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -110,8 +110,8 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            rows={5}
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+            rows={2}
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 "
             placeholder="Tell us about your investment goals..."
           />
         </div>
@@ -121,7 +121,7 @@ export default function ContactForm() {
           disabled={isSubmitting}
           whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
           whileTap={{ scale: 0.95 }}
-          className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-[#017BFC] to-[#40D3B6] text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>
