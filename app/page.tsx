@@ -465,7 +465,7 @@ export default function RealFusionPage() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-blue-50" />
+        <div className="absolute inset-0 bg-[#f7f7f7]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <motion.div
