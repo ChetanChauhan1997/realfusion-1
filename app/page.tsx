@@ -119,7 +119,7 @@ export default function RealFusionPage() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="relative group px-4 py-2 text-black-800  hover:text-slate-800 transition-all duration-300"
+                  className="relative group px-4 py-2 text-black-800  text-semibold  hover:text-slate-800 transition-all duration-300"
                 >
                   {item.label}
 
