@@ -6,7 +6,21 @@ import { ChevronDown, Mail, Phone, MapPin, BarChart3, Users, Brain, ChevronLeft,
 import ContactForm from "@/components/contact-form"
 import { AnimatedCounter } from "@/components/animated-counter";
 import { TypeAnimation } from 'react-type-animation';
+import LoginModal from "@/components/LoginModal"
 
+
+
+
+
+
+
+export default function RealFusionPage() {
+  const [activeSection, setActiveSection] = useState("hero")
+
+const [isModalOpen, setIsModalOpen] = useState(false)
+
+
+  // const { scrollYProgress } = useScroll()
 
 const images = [
   "/dubai-night.jpg",
@@ -14,14 +28,6 @@ const images = [
   "/dubai-skyline-luxury.png",
   "/palm-jumeirah-luxury-villas.png",
 ]
-
-
-export default function RealFusionPage() {
-  const [activeSection, setActiveSection] = useState("hero")
-
-  // const { scrollYProgress } = useScroll()
-
-
 
 
   useEffect(() => {
@@ -119,7 +125,7 @@ export default function RealFusionPage() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="relative group px-4 py-2 text-black-800  text-semibold  hover:text-slate-800 transition-all duration-300"
+                  className="relative group px-4 py-2 text-black-800 text-semibold  hover:text-slate-800 transition-all duration-300"
                 >
                   {item.label}
 
@@ -136,8 +142,9 @@ export default function RealFusionPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-[#017BFC] to-[#40D3B6] px-6 py-2 rounded-lg font-semibold text-white
-             transition-all duration-300
-              hover:shadow-[0px_6px_18px_rgba(2,203,183,0.5)]"
+    transition-all duration-300
+    hover:shadow-[0px_6px_18px_rgba(2,203,183,0.5)]"
+              onClick={() => setIsModalOpen(true)}
             >
               Sign Up
             </motion.button>
@@ -170,9 +177,13 @@ export default function RealFusionPage() {
 
           {/* CTA & Tagline */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-4">
-            <button className="bg-gradient-to-r from-[#017BFC] to-[#40D3B6] px-6 py-2 rounded-lg text-sm sm:text-base md:text-lg font-semibold text-white  transition-all duration-300 hover:shadow-[0px_6px_25px_rgba(2,203,183,0.5)]">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-[#017BFC] to-[#40D3B6] px-6 py-2 rounded-lg text-sm sm:text-base md:text-lg font-semibold text-white transition-all duration-300 hover:shadow-[0px_6px_25px_rgba(2,203,183,0.5)]"
+            >
               Sign Up
             </button>
+
 
             <div className="text-center sm:text-left">
               <div className="text-base sm:text-lg md:text-xl font-bold text-black">
@@ -451,7 +462,7 @@ export default function RealFusionPage() {
                         wrapper="p"
                         cursor={true}
                         speed={50}
-                        className="text-sm sm:text-base md:text-lg leading-relaxed" 
+                        className="text-sm sm:text-base md:text-lg leading-relaxed"
                       />
                     )}
                   </div>
@@ -464,7 +475,7 @@ export default function RealFusionPage() {
 
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
+      <section id="contact" className="py-20 relative ">
         <div className="absolute inset-0 bg-[#f7f7f7]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -561,6 +572,8 @@ export default function RealFusionPage() {
           <div className="text-slate-400 text-sm">© 2025 RealFusion. All rights reserved.</div>
         </div>
       </footer>
+
+      <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }
