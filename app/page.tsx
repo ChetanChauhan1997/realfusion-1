@@ -9,25 +9,20 @@ import { TypeAnimation } from 'react-type-animation';
 import LoginModal from "@/components/LoginModal"
 
 
-
-
-
-
-
 export default function RealFusionPage() {
   const [activeSection, setActiveSection] = useState("hero")
 
-const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
 
   // const { scrollYProgress } = useScroll()
 
-const images = [
-  "/dubai-night.jpg",
-  "/dubai-marina-luxury.png",
-  "/dubai-skyline-luxury.png",
-  "/palm-jumeirah-luxury-villas.png",
-]
+  const images = [
+    "/dubai-night.jpg",
+    "/dubai-marina-luxury.png",
+    "/dubai-skyline-luxury.png",
+    "/palm-jumeirah-luxury-villas.png",
+  ]
 
 
   useEffect(() => {
@@ -155,7 +150,7 @@ const images = [
       {/*Hero   */}
       <section
         id="hero"
-        className="relative min-h-[80vh] flex flex-col items-center justify-between overflow-hidden pt-10 md:pt-16 mb-8"
+        className="relative min-h-[50vh] flex flex-col items-center justify-between overflow-hidden pt-10 md:pt-16 "
       >
         {/* Hero Content */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -176,41 +171,24 @@ const images = [
           </p>
 
           {/* CTA & Tagline */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-4">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-gradient-to-r from-[#017BFC] to-[#40D3B6] px-6 py-2 rounded-lg text-sm sm:text-base md:text-lg font-semibold text-white transition-all duration-300 hover:shadow-[0px_6px_25px_rgba(2,203,183,0.5)]"
-            >
-              Sign Up
-            </button>
 
-
-            <div className="text-center sm:text-left">
-              <div className="text-base sm:text-lg md:text-xl font-bold text-black">
-                Smarter Investments.
-              </div>
-              <div className="text-xs sm:text-sm md:text-base text-[#5E807F]">
-                Humanly Delivered.
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Chevron + Image */}
-        <div className="relative z-10 flex flex-col items-center space-y-6 pt-8">
+        {/* <div className="relative z-10 flex flex-col items-center space-y-6 pt-8">
           <button
             onClick={() => scrollToSection("about")}
             className="text-gray-600 hover:text-black transition-colors duration-300"
           >
             <ChevronDown size={28} />
           </button>
-        </div>
+        </div> */}
       </section>
 
 
-      <section className="relative">
+      <section className="relative mb-12">
         {/* Background Image Wrapper */}
-        <div className="h-[130vh] w-full overflow-hidden">
+        <div className="h-[140vh] w-full overflow-hidden">
           <img
             src="/dubai-night.jpg"
             alt="Dubai Skyline"
@@ -219,25 +197,48 @@ const images = [
         </div>
 
         {/* Overlay with animated text */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <div className="text-white w-full max-w-5xl px-6">
-            <ul className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold space-y-6">
-              {lines.map((text, index) => (
-                <motion.li
-                  key={index}
-                  className={`relative py-10 ${index % 2 === 0
-                    ? "text-left pr-10"
-                    : "text-right pl-10 ml-auto"
-                    }`}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                >
-                  {text}
-                </motion.li>
-              ))}
-            </ul>
+        <div className="absolute inset-0 flex flex-col justify-between bg-black/40">
+
+          {/* Animated Lines */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-white w-full max-w-5xl px-6">
+              <ul className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold space-y-6">
+                {lines.map((text, index) => (
+                  <motion.li
+                    key={index}
+                    className={`relative py-10 ${index % 2 === 0
+                      ? "text-left pr-10"
+                      : "text-right pl-10 ml-auto"
+                      }`}
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                  >
+                    {text}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Sign Up + Smarter Investments (moved to 3/4 bottom) */}
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-gradient-to-r from-[#017BFC] to-[#40D3B6] px-6 py-2 rounded-lg text-sm sm:text-base md:text-lg font-semibold text-white transition-all duration-300 hover:shadow-[0px_6px_25px_rgba(2,203,183,0.5)]"
+            >
+              Sign Up
+            </button>
+
+            <div className="text-center sm:text-left">
+              <div className="text-base sm:text-lg md:text-xl font-bold text-white">
+                Smarter Investments.
+              </div>
+              <div className="text-xs sm:text-sm md:text-base text-[#D0E6E4]">
+                Humanly Delivered.
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -248,8 +249,9 @@ const images = [
 
 
 
+
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py- relative">
         <div className="absolute inset-0 bg-[#f7f7f7]" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -344,58 +346,6 @@ const images = [
 
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-10"
-          >
-            <h3 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-[#017BFC] to-[#40D3B6] bg-clip-text text-transparent">
-              Dubai's Premier Real Estate Locations
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <motion.div whileHover={{ scale: 1.05 }} className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="/dubai-marina-luxury.png"
-                  alt="Dubai Marina"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white font-semibold">Dubai Marina</div>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="/dubai-skyline-luxury.png"
-                  alt="Downtown Dubai"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white font-semibold">Downtown Dubai</div>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="/palm-jumeirah-luxury-villas.png"
-                  alt="Palm Jumeirah"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white font-semibold">Palm Jumeirah</div>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="/dubai-business-bay-canal.png"
-                  alt="Business Bay"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white font-semibold">Business Bay</div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-
         </div>
       </section>
 
@@ -403,7 +353,7 @@ const images = [
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center mb-12 bg-[#f7f7f7]" id="AI">
           <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#017BFC] to-[#40D3B6] bg-clip-text text-transparent">
@@ -426,7 +376,7 @@ const images = [
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.3, delay: index * 0.1, ease: "easeOut"}}
                 viewport={{ once: true }}
                 className="group [perspective:1000px] flex justify-center"
                 onMouseEnter={() => setHoveredIndex(index)}
@@ -458,10 +408,10 @@ const images = [
                     <h3 className="text-3xl font-bold mb-4 text-white">{card.title}</h3>
                     {isHovered && (
                       <TypeAnimation
-                        sequence={[card.description, 1000]}
+                        sequence={[card.description, 0]}
                         wrapper="p"
                         cursor={true}
-                        speed={50}
+                        speed={90}
                         className="text-sm sm:text-base md:text-lg leading-relaxed"
                       />
                     )}
