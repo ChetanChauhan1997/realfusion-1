@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "RealFusion 1",
   description: "Created by Chetan",
   generator: "React",
+  icons: {
+    icon: "/favicon.ico", 
+  
 };
 
 // Montserrat (semi-bold)
