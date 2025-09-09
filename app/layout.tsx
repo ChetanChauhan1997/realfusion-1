@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   generator: "React",
   icons: {
     icon: "/favicon.ico", 
-  
+  },
 };
 
 // Montserrat (semi-bold)
